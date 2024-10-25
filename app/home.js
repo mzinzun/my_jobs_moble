@@ -6,6 +6,8 @@ import { Stack, useRouter } from 'expo-router'
 import { COLORS, icons,images, SIZES } from '../constants'
 // import {icons} from '../constants'
 import { NearbyJobs, PopularJobs, ScreenHeaderBtn, Welcome} from '../components'
+import USAJobsComponent from '../components/USAJobsComponent'
+import TestData from '../components/TestData'
 // const iconPath = "require(icons.menu)";
 const home = () => {
     const router = useRouter()
@@ -43,6 +45,8 @@ const home = () => {
         <View style={{flex: 1, padding: SIZES.padding}}>
         <Welcome/>
         <PopularJobs/>
+        {/* <USAJobsComponent/> */}
+        {/* <TestData/> */}
         <NearbyJobs/>
         </View>
       </ScrollView>

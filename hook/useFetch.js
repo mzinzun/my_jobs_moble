@@ -4,9 +4,7 @@ import { USA_API_KEY, RAPID_API_KEY } from '@env';
 
 const useFetch = async () => {
     // console.log('endpoint: ', endpoint);
-    const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+
 
 
     const fetchData = async () => {
@@ -42,9 +40,9 @@ const useFetch = async () => {
         const host = 'data.usajobs.gov';
         const userAgent = 'zinzunmichael@gmail.com';
         const authKey = USA_API_KEY;
-        setLoading(true);
+        // setLoading(true);
         // try {
-        axios.request(
+        const response = axios.request(
             {
                 url: 'https://data.usajobs.gov/api/search?PositionTitle=Web%Developer&Keyword=Web  Developer&LocationName=Los%Angeles,%California',
                 method: 'GET',

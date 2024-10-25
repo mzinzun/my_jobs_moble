@@ -5,6 +5,9 @@ import { FONT, SIZES, COLORS } from "../constants";
 const styles = StyleSheet.create({
   container: {
     marginTop: SIZES.xLarge,
+    borderColor: 'red',
+    borderWidth: 2,
+    padding: SIZES.medium
   },
   header: {
     flexDirection: "row",
@@ -22,7 +25,13 @@ const styles = StyleSheet.create({
     color: COLORS.gray,
   },
   cardsContainer: {
+    borderColor: 'green',
+    borderWidth: 2,
     marginTop: SIZES.medium,
+    flexDirection: "column",
+    justifyContent: "space-between",
+    alignItems: "center",
+
   },
 });
 
