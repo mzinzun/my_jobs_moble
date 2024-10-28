@@ -1,12 +1,12 @@
 
 import { View, Text, ScrollView, SafeAreaView, Image} from 'react-native'
-import React, {useState} from 'react'
+import {useState} from 'react'
 import { Stack, useRouter } from 'expo-router'
 
 import { COLORS, icons,images, SIZES } from '../constants'
-// import {icons} from '../constants'
 import { NearbyJobs, PopularJobs, ScreenHeaderBtn, Welcome} from '../components'
 // const iconPath = "require(icons.menu)";
+
 const home = () => {
     const router = useRouter()
     const onPress = () => {
@@ -42,7 +42,8 @@ const home = () => {
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={{flex: 1, padding: SIZES.padding}}>
         <Welcome/>
-        <PopularJobs/>
+        {/* <PopularJobs/> */}
+
         <NearbyJobs/>
         </View>
       </ScrollView>
