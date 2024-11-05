@@ -16,7 +16,6 @@ const PopularJobs = () => {
   const router = useRouter()
   useEffect( () => {
     console.log('UseEffect started');
-    console.log('USA_API_KEY: ', USA_API_KEY);
     const host = 'data.usajobs.gov';
     const userAgent = 'zinzunmichael@gmail.com';
     const authKey = USA_API_KEY;

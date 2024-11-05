@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, FlatList, ActivityIndicator, StyleSheet } from 'react-native';
+import { USA_API_KEY } from '@env';
+import { useRouter } from 'expo-router'
 import axios from 'axios';
 
 const USAJobsComponent = () => {
@@ -16,11 +18,11 @@ const USAJobsComponent = () => {
           'Authorization-Key': 'oRlE8Ke2mn6ezU/zWryy/YIOmSLLXeAPHR2GSmRgBnU='
         },
         params: {
-          Keyword: 'developer',
-          LocationName: 'California'
+          Keyword: 'Web Developer',
         }
       });
       setData(response.data.SearchResult.SearchResultItems);
+      console.log('Data: ', response.data.SearchResult.SearchResultItems,(response.data.SearchResult.SearchResultItems).length);
     } catch (err) {
       setError(err);
     } finally {
@@ -30,18 +32,14 @@ const USAJobsComponent = () => {
 
   useEffect(() => {
     fetchJobs();
+
   }, []);
 
-  if (loading) {
-    return <ActivityIndicator size="large" color="#0000ff" />;
-  }
-
-  if (error) {
-    return <Text>Error: {error.message}</Text>;
-  }
-
   return (
+    console.log('Data: ', data.length),
     <View style={styles.container}>
+      <View >
+      {loading? <ActivityIndicator size="large" color="#0000ff" /> : error ? <Text>Error: {error.message}</Text> :<View>
       <FlatList
         data={data}
         keyExtractor={(item) => item.MatchedObjectId}
@@ -52,7 +50,8 @@ const USAJobsComponent = () => {
             <Text>{item.MatchedObjectDescriptor.PositionLocationDisplay}</Text>
           </View>
         )}
-      />
+      /></View>}
+      </View>
     </View>
   );
 };
